@@ -1,3 +1,4 @@
+import React from 'react'
 import type {NextPage} from 'next'
 import Head from 'next/head'
 import {TopBar} from 'components/top-bar'
@@ -18,7 +19,6 @@ const Home: NextPage = () => {
                 <Main/>
             </main>
             <footer className="flex flex-col flex-1 h-24 items-center justify-center w-1/2">
-
                 <Form/>
             </footer>
         </div>
