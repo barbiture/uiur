@@ -32,6 +32,7 @@ const Input = ({label, register, required, errors, type}: InputProps) => {
     )
 };
 const TextArea = ({label, register, required, errors}) => {
+    console.log(errors)
     return (
         <InputWrapper>
             <label className="block">{label}</label>
@@ -55,17 +56,21 @@ const Form = () => {
         alert(JSON.stringify(data));
     };
     return (
-        <form onChange={handleSend} onSubmit={handleSubmit(onSubmit)}>
-            <div className="grid grid-rows-3 gap-5">
-                <div className="grid grid-cols-2 gap-5 row-span-3">
-                    <Items.Input label="Name" register={register} errors={errors} required/>
-                    <Items.Input label="Phone" register={register} errors={errors} required/>
+        <div className="bg-brand-blue rounded-lg w-full p-6">
+            <h2 className="text-white text-center mb-2">Долучайтесь до дослідніцької діяльності <br/>
+                Та разом будувати здорове суспільство</h2>
+            <form onChange={handleSend} onSubmit={handleSubmit(onSubmit)}>
+                <div className="grid grid-rows-3 gap-5">
+                    <div className="grid grid-cols-2 gap-5 row-span-3">
+                        <Items.Input label="Name" register={register} errors={errors} required/>
+                        <Items.Input label="Phone" register={register} errors={errors} required/>
+                    </div>
+                    <Items.TextArea className="row-span-1" label="Description" register={register} errors={errors}
+                                    cols="30" rows="10"/>
+                    <input type="submit" className="bg-brand-yellow form-input rounded-lg text-white row-span-2"/>
                 </div>
-                <Items.TextArea className="row-span-1" label="Description" register={register} errors={errors}
-                                cols="30" rows="10"/>
-                <input type="submit" className="bg-brand-yellow form-input rounded-lg text-white row-span-2"/>
-            </div>
-        </form>
+            </form>
+        </div>
     );
 };
 
