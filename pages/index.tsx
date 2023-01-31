@@ -18,7 +18,7 @@ const Home: NextPage = () => {
             <main className="flex w-full flex-1 flex-col items-center justify-center px-20 py-8 text-center ">
                 <Main/>
             </main>
-            <footer className="flex flex-col flex-1 h-24 items-center justify-center w-1/2">
+            <footer className="flex flex-col flex-1 items-center justify-center w-1/2">
                 <Form/>
             </footer>
         </div>

@@ -11,6 +11,7 @@ interface IFormValues {
 
 type InputProps = {
     label: Path<IFormValues> & string;
+    name: string
     register: UseFormRegister<IFormValues>;
     required?: boolean;
     className?: string
@@ -28,20 +29,21 @@ const InputWrapper = ({children}: ChildProps): JSX.Element => (
     </div>
 )
 
-const Input = ({label, register, required}: InputProps) => {
+const Input = ({label, name, register, required}: InputProps) => {
+    console.log('name', name)
     const data = {register: {...register(label, {required}),}}
     return (
         <InputWrapper>
-            <label className="block">{label}</label>
+            <label className="block">{name}</label>
             <input {...data.register} className="form-input px-4 py-3 text-black rounded-lg w-full"/>
         </InputWrapper>
     )
 };
-const TextArea = ({label, register, required}: InputProps) => {
+const TextArea = ({label, name, register, required}: InputProps) => {
         const data = {register: {...register(label, {required}),}}
         return (
             <InputWrapper>
-                <label className="block">{label}</label>
+                <label className="block">{name}</label>
                 <textarea {...data.register} className="form-input px-4 py-3 text-black rounded-lg w-full"/>
             </InputWrapper>
         )
@@ -62,7 +64,6 @@ const Form = () => {
     const onSubmit: SubmitHandler<IFormValues> = data => {
         alert(JSON.stringify(data));
     };
-    console.log('errors')
     return (
         <div className="bg-brand-blue rounded-lg w-full p-6">
             <h2 className="text-white text-center mb-2">Долучайтесь до дослідніцької діяльності <br/>
@@ -70,11 +71,12 @@ const Form = () => {
             <form onChange={handleSend} onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid grid-rows-3 gap-5">
                     <div className="grid grid-cols-2 gap-5 row-span-3">
-                        <Items.Input label="Name" register={register} required/>
-                        <Items.Input label="Phone" register={register} required/>
+                        <Items.Input name="Номер телефону" label="Name" register={register} required/>
+                        <Items.Input name="Ім’я" label="Phone" register={register} required/>
                     </div>
-                    <Items.TextArea className="row-span-1" label="Details" register={register} cols="30" rows="10" />
-                    <input type="submit" className="bg-brand-yellow form-input rounded-lg text-white row-span-2"/>
+                    <Items.TextArea name="Додаткова інформація" className="row-span-1" label="Details"
+                                    register={register} cols="30" rows="10"/>
+                    <input value="Долучитись" type="submit" className="bg-brand-yellow form-input rounded-lg text-white row-span-2"/>
                 </div>
             </form>
         </div>

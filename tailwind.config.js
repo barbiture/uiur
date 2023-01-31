@@ -1,4 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
+const defaultTheme = require('tailwindcss/defaultTheme')
 /** @type {import('tailwindcss').Config} */
+// eslint-disable-next-line no-undef
 module.exports = {
     content: [
         './pages/**/*.{js,ts,jsx,tsx}',
@@ -14,15 +17,16 @@ module.exports = {
                 yellow: '#F3CE5E'
             }
         },
-        extend: {
-            fontFamily: {
-                eUkraine: ['e-Ukraine'],
-                sans: ['eUkraine', 'sans-serif'],
-                eUkraineHead: ['e-Ukraine Head'],
-            }
-        },
+        fontFamily: {
+            body: ['e-Ukraine', ...defaultTheme.fontFamily.sans],
+            display: ['e-Ukraine Head', ...defaultTheme.fontFamily.sans],
+        }
+        // extend: {
+        //
+        // },
     },
     plugins: [
+        // eslint-disable-next-line no-undef
         require('@tailwindcss/forms'),
     ],
     corePlugins: {
