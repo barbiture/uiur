@@ -10,7 +10,7 @@ const Main = () => {
                 Підводних Досліджень
             </h1>
 
-            <p className="mt-5 text-1xl w-2/5 font-thin font-body">
+            <p className="mt-5 text-1xl sm:w-2/5 font-thin font-body">
                 Ми інституція по організації та підтримці наукових і дослідницьких проектів в рамках підводних
                 занурень і суміжних з ними темами.
 

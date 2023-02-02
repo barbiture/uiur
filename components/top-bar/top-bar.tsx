@@ -19,7 +19,7 @@ const NavItems = () => {
     return <>{navArray.map(([title, url, id]) => (
         <Link href={url}
               key={id}
-              className={`${currentRoute === url ? 'text-brand-yellow' : 'text-white'} text-center basis-1/4 self-center mx-10 my-5 font-medium hover:text-brand-yellow hover:text-slate-900`}>{title}</Link>
+              className={`${currentRoute === url ? 'text-brand-yellow' : 'text-white'} text-center basis-1/4 self-center sm:mx-10 my-5 font-medium hover:text-brand-yellow hover:text-slate-900`}>{title}</Link>
     ))
     }</>
 }
@@ -27,7 +27,7 @@ const TopBar = ({main = false}: ITopBar) => {
 
     if (main) {
         return (
-            <nav className="flex flex-row sm:justify-center mx-8">
+            <nav className="flex flex-row sm:justify-center justify-around sm:mx-8">
                 <NavItems/>
             </nav>
         );

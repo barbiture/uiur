@@ -10,10 +10,10 @@ const Home: NextPage = () => {
             <header className="bg-brand-blue w-full flex-2">
                 <TopBar main/>
             </header>
-            <main className="flex w-full flex-1 flex-col items-center justify-center px-20 py-8 text-center ">
+            <main className="flex w-full flex-1 flex-col items-center justify-center px-2 sm:px-20 py-8 text-center ">
                 <Main/>
             </main>
-            <footer className="flex flex-col flex-1 items-center justify-center w-1/2">
+            <footer className="flex flex-col flex-1 items-center justify-center sm:w-1/2 px-5">
                 <Form/>
             </footer>
         </div>
