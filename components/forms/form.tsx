@@ -1,27 +1,8 @@
 import React from 'react';
 
-import {Path, useForm, UseFormRegister, SubmitHandler} from "react-hook-form";
+import {useForm, SubmitHandler} from "react-hook-form";
+import {ChildProps, IFormValues, InputProps} from "./form.d";
 
-interface IFormValues {
-    "Name": string;
-    "Phone": string;
-    Details: string;
-
-}
-
-type InputProps = {
-    label: Path<IFormValues> & string;
-    name: string
-    register: UseFormRegister<IFormValues>;
-    required?: boolean;
-    className?: string
-    cols?: string
-    rows?: string
-};
-
-export interface ChildProps {
-    children: React.ReactNode
-}
 
 const InputWrapper = ({children}: ChildProps): JSX.Element => (
     <div className="text-white">
@@ -30,7 +11,6 @@ const InputWrapper = ({children}: ChildProps): JSX.Element => (
 )
 
 const Input = ({label, name, register, required}: InputProps) => {
-    console.log('name', name)
     const data = {register: {...register(label, {required}),}}
     return (
         <InputWrapper>
@@ -65,18 +45,19 @@ const Form = () => {
         alert(JSON.stringify(data));
     };
     return (
-        <div className="bg-brand-blue rounded-lg w-full p-6">
-            <h2 className="text-white text-center mb-2">Долучайтесь до дослідніцької діяльності <br/>
+        <div className="bg-brand-blue rounded-lg w-full p-6 font-eUkraine">
+            <h2 className="text-white text-center mb-6">Долучайтесь до дослідніцької діяльності <br/>
                 Та разом будувати здорове суспільство</h2>
-            <form onChange={handleSend} onSubmit={handleSubmit(onSubmit)}>
+            <form className="font-thin" onChange={handleSend} onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid grid-rows-3 gap-5">
                     <div className="grid grid-cols-2 gap-5 row-span-3">
-                        <Items.Input name="Номер телефону" label="Name" register={register} required/>
-                        <Items.Input name="Ім’я" label="Phone" register={register} required/>
+                        <Items.Input name="* Номер телефону" label="Name" register={register} required/>
+                        <Items.Input name="* Ім’я" label="Phone" register={register} required/>
                     </div>
                     <Items.TextArea name="Додаткова інформація" className="row-span-1" label="Details"
                                     register={register} cols="30" rows="10"/>
-                    <input value="Долучитись" type="submit" className="bg-brand-yellow form-input rounded-lg text-white row-span-2"/>
+                    <input value="Долучитись" type="submit"
+                           className="bg-brand-yellow form-input rounded-lg text-white row-span-2"/>
                 </div>
             </form>
         </div>
