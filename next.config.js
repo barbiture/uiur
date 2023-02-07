@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-    reactStrictMode: true,
-    compiler: {
-        styledComponents: true
-    }
-}
+  i18n: {
+    locales: ['uk', 'en'],
+    defaultLocale: 'uk',
+  },
+  reactStrictMode: true,
+  compiler: {
+    styledComponents: true,
+  },
+};
