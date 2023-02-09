@@ -20,7 +20,6 @@ const NavItems = () => {
 
     // ['Зворотній зв`язок', '/contacts', '2'],
   ];
-  console.log('router.pathname', router.pathname);
   return (
     <>
       {navArray.map(([title, url, id]) => (

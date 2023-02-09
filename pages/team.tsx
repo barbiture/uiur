@@ -14,7 +14,7 @@ const Team: NextPage = () => {
         <Main />
       </main>
       <footer className="flex flex-col flex-1 items-center justify-center sm:w-1/2 px-5">
-        <Form />
+        <Form typePage="team" />
       </footer>
     </div>
   );
