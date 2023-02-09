@@ -6,6 +6,15 @@
     font-family: E-Ukraine, system-ui, sans-serif;
   }
 }
+:root {
+    --check-size: 90px;
+    --check-border-width: 5px;
+    --checkmark-width: calc(var(--check-size) / 2);
+    --checkmark-height: calc(var(--checkmark-width) / 2);
+    --checkmark-left: calc(var(--checkmark-width) / 2);
+    --checkmark-top: 50%;
+    --checkmark-color: #027DD7;
+}
 @font-face {
   font-family: 'e-Ukraine';
   font-style: normal;
