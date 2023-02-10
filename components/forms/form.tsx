@@ -64,6 +64,7 @@ const Input = ({ name, register, typePage, widthMaskPhone }: InputProps) => {
         <InputMask
           {...register}
           className={`${styleSwitch.get(typePage)?.input} p-3`}
+          defaultValue=""
           mask={`${countryCode} 99 999 99 99`}
           maskChar=" "
         />
@@ -107,6 +108,7 @@ const Form = ({ typePage }: TitleProps) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<IFormValues>();
   const TOKEN = process.env.TELEGRAM_TOKEN;
   const chatID = process.env.TELEGRAM_CHAT_ID;
@@ -127,6 +129,9 @@ const Form = ({ typePage }: TitleProps) => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        reset({ Phone: '', Name: '', Details: '', LeadType: '' });
       });
   };
 
