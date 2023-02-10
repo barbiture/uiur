@@ -117,7 +117,6 @@ const Form = ({ typePage }: TitleProps) => {
     chatID +
     '&text=';
   const onSubmit: SubmitHandler<IFormValues> = (data) => {
-    alert(JSON.stringify(data));
     const message = JSON.stringify(data);
     fetch(api + 'New%20Message:%20' + message)
       .then(() => {
