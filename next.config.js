@@ -14,8 +14,8 @@ module.exports = {
     ];
   },
   i18n: {
-    locales: ['uk', 'en'],
-    defaultLocale: 'uk',
+    locales: ['uk-UA', 'en-GB'],
+    defaultLocale: 'uk-UA',
   },
   reactStrictMode: true,
   compiler: {

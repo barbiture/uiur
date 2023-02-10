@@ -30,19 +30,21 @@ const NavItems = () => {
           {title}
         </Link>
       ))}
-      {[...(router?.locales || [])].sort().map((item, index) => {
-        const id = item + index;
+      {[
+        { url: 'en-GB', label: 'en', id: 0 },
+        { url: 'uk-UA', label: 'ua', id: '1' },
+      ].map(({ url, label, id }, index) => {
         return (
           <>
             <Link
               key={id}
               href={router.pathname}
-              locale={item}
+              locale={url}
               className={`${
-                item === router.locale ? 'text-brand-yellow' : 'text-white'
+                url === router.locale ? 'text-brand-yellow' : 'text-white'
               }`}
             >
-              {item}
+              {label}
             </Link>
             {index === 0 ? <span className="text-white"> / </span> : <></>}
           </>
