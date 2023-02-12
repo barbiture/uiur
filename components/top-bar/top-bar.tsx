@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useIntl } from 'react-intl';
 import Link from 'next/link';
 import { Logo } from '../logo';
+import styles from './tob-bar.module.css';
 
 // interface ITopBar {
 //     main?: boolean
@@ -23,33 +24,35 @@ const NavItems = () => {
         <Link
           href={url}
           key={id}
-          className={`${
+          className={`${styles.navLink} ${
             currentRoute === url ? 'text-brand-yellow' : 'text-white'
-          } text-center basis-1/4 self-center mx-10 my-5 font-medium hover:text-brand-yellow hover:text-slate-900`}
+          }`}
         >
           {title}
         </Link>
       ))}
-      {[
-        { url: 'en-GB', label: 'en', id: 0 },
-        { url: 'uk-UA', label: 'ua', id: '1' },
-      ].map(({ url, label, id }, index) => {
-        return (
-          <>
-            <Link
-              key={id}
-              href={router.pathname}
-              locale={url}
-              className={`${
-                url === router.locale ? 'text-brand-yellow' : 'text-white'
-              }`}
-            >
-              {label}
-            </Link>
-            {index === 0 ? <span className="text-white"> / </span> : <></>}
-          </>
-        );
-      })}
+      <div>
+        {[
+          { url: 'en-GB', label: 'en', id: 0 },
+          { url: 'uk-UA', label: 'ua', id: '1' },
+        ].map(({ url, label, id }, index) => {
+          return (
+            <>
+              <Link
+                key={id}
+                href={router.pathname}
+                locale={url}
+                className={`${styles.navLink} ${
+                  url === router.locale ? 'text-brand-yellow' : 'text-white'
+                }`}
+              >
+                {label}
+              </Link>
+              {index === 0 ? <span className="text-white"> / </span> : <></>}
+            </>
+          );
+        })}
+      </div>
     </>
   );
 };
@@ -64,17 +67,15 @@ const TopBar = () => {
   //     );
   // }
   return (
-    <nav className="flex sm:flex-row flex-col justify-between mx-8 items-center sm:p-5 py-5">
-      <Link
-        href="/"
-        className="flex items-center hover:text-brand-yellow text-white fill-current w-60"
-      >
+    <nav className={styles.nav}>
+      <Link href="/" className={styles.logoLink}>
         <Logo width={43} height={44} fill="currentColor" />
         <span className="ml-2 text-xs">
-          {intl.formatMessage({ id: 'logo.title' })}
+          {intl.formatMessage({ id: 'logo.title.first' })} <br />
+          {intl.formatMessage({ id: 'logo.title.second' })}
         </span>
       </Link>
-      <div className="sm:self-end">
+      <div className={styles.navWrapper}>
         <NavItems />
       </div>
     </nav>

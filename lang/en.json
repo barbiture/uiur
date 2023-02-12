@@ -1,5 +1,6 @@
 {
-  "logo.title": "Ukrainian Institute of Underwater Exploration",
+  "logo.title.first": "Ukrainian Institute of",
+  "logo.title.second": "Underwater Research",
   "nav.team": "team",
   "form.error": "all fields must be filled",
   "form.title": "Join the program",

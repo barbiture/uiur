@@ -13,7 +13,7 @@ const Team: NextPage = () => {
       <main className="flex w-full flex-1 flex-col items-center justify-center px-2 sm:px-20 py-8 text-center ">
         <Main />
       </main>
-      <footer className="flex flex-col flex-1 items-center justify-center sm:w-1/2 px-5">
+      <footer className="flex flex-col flex-1 items-center justify-center sm:w-2/3 px-5">
         <Form typePage="team" />
       </footer>
     </div>

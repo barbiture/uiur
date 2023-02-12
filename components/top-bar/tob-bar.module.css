@@ -1,0 +1,42 @@
+.nav {
+  @apply flex
+    sm:flex-row
+    flex-col
+    justify-between
+    md:mx-8
+    items-center
+    sm:p-5
+    py-5;
+}
+
+.navWrapper {
+  @apply sm:self-end
+    flex
+    justify-between
+    sm:justify-end
+    align-middle
+    text-center
+    w-full
+    sm:py-0
+    mt-5
+    pt-5
+    sm:pr-0
+    pr-5
+    sm:border-0
+    border-t
+    border-white;
+}
+
+.logoLink {
+  @apply flex
+    items-center
+    hover:text-brand-yellow
+    text-white
+    sm:w-80;
+}
+
+.navLink {
+  @apply basis-1/4
+    font-medium
+    hover:text-brand-yellow;
+}
