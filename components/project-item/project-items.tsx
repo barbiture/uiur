@@ -108,22 +108,12 @@ const ProjectItems = () => {
             className="p-10 text-white font-thin border-b-2 border-color-blue"
           >
             <h4 className="text-3xl mb-6">
-              {' '}
-              {intl.formatMessage({ id: title })}{' '}
+              {intl.formatMessage({ id: title })}
             </h4>
             <p>{intl.formatMessage({ id: description })}</p>
           </div>
         );
       })}
-
-      <div className="p-10 text-white font-thin border-b-1 border-color-white">
-        <h4 className="text-3xl mb-6">
-          {intl.formatMessage({ id: 'page.project.pts.expertise.title' })}{' '}
-        </h4>
-        <p>
-          {intl.formatMessage({ id: 'page.project.pts.expertise.description' })}
-        </p>
-      </div>
     </div>
   );
 };
