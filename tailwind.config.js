@@ -19,6 +19,17 @@ module.exports = {
         yellow: '#F3CE5E',
       },
     },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+      '3xl': '1700px',
+    },
+    extend: {
+      'line-height': '3.5rem',
+    },
     fontFamily: {
       body: ['e-Ukraine', ...defaultTheme.fontFamily.sans],
       display: ['e-Ukraine Head', ...defaultTheme.fontFamily.sans],
@@ -28,6 +39,8 @@ module.exports = {
     // },
   },
   plugins: [
+    require('@tailwindcss/typography'),
+
     // eslint-disable-next-line no-undef
     require('@tailwindcss/forms'),
   ],

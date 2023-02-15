@@ -24,7 +24,7 @@ const stylesForm: IStylesForm = {
   },
   home: {
     form: 'bg-white text-brand-blue',
-    text: 'text-3xl',
+    text: 'text-5xl',
     input: 'form-input px-4 text-black w-full',
     button: 'hover:bg-brand-blue hover:text-white duration-700',
     radio:
@@ -49,7 +49,10 @@ const Radio = ({ name, register, typePage, value, type }: InputProps) => {
         value={value}
         className="peer hidden"
       />
-      <label htmlFor={value} className={styleSwitch.get(typePage)?.radio}>
+      <label
+        htmlFor={value}
+        className={`${styleSwitch.get(typePage)?.radio} font-middle`}
+      >
         {name}
       </label>
     </div>
@@ -59,7 +62,7 @@ const countryCode = `+3\\80`;
 const Input = ({ name, register, typePage, widthMaskPhone }: InputProps) => {
   return (
     <InputWrapper>
-      <label className="block">{name}</label>
+      <label className="block font-middle">{name}</label>
       {widthMaskPhone ? (
         <InputMask
           {...register}
@@ -80,7 +83,7 @@ const Input = ({ name, register, typePage, widthMaskPhone }: InputProps) => {
 const TextArea = ({ name, register, typePage }: InputProps) => {
   return (
     <InputWrapper>
-      <label className="block">{name}</label>
+      <label className="block font-middle">{name}</label>
       <textarea {...register} className={styleSwitch.get(typePage)?.input} />
     </InputWrapper>
   );
@@ -139,7 +142,7 @@ const Form = ({ typePage }: TitleProps) => {
     <div
       className={`${
         styleSwitch.get(typePage)?.form || ''
-      } w-full p-6 font-eUkraine sm:text-base text-xs relative overflow-hidden`}
+      } w-full p-20 font-eUkraine sm:text-base text-xs relative overflow-hidden`}
     >
       {isDone && (
         <div className="absolute bg-white opacity-75 w-full h-full flex items-center justify-center -left-1">
@@ -202,7 +205,7 @@ const Form = ({ typePage }: TitleProps) => {
             <input
               value={intl.formatMessage({ id: 'form.join' })}
               type="submit"
-              className={`p-5 bg-brand-yellow row-span-2 border-0 font-thin text-brand-blue cursor-pointer ${
+              className={`p-5 bg-brand-yellow row-span-2 border-0 font-middle text-brand-blue cursor-pointer ${
                 styleSwitch.get(typePage)?.button
               }  ${styleSwitch.get(typePage)?.input}`}
             />

@@ -6,7 +6,12 @@
     md:mx-8
     items-center
     sm:p-5
-    py-5;
+    py-5
+  sm:pr-0
+  pr-5
+  sm:border-0
+  border-b
+  border-white;
 }
 
 .navWrapper {
@@ -18,13 +23,8 @@
     text-center
     w-full
     sm:py-0
-    mt-5
-    pt-5
-    sm:pr-0
-    pr-5
-    sm:border-0
-    border-t
-    border-white;
+    my-5
+    py-5;
 }
 
 .logoLink {

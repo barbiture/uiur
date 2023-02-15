@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useIntl } from 'react-intl';
+import styles from './project-item.module.css';
 import { Form } from '../forms';
 
 type Props = {
@@ -8,24 +9,29 @@ type Props = {
   isRevers?: boolean;
 };
 const Item = ({ children }: Props) => {
-  return <div className="flex lg:w-6/12">{children}</div>;
+  return <div className="flex w-full lg:w-6/12">{children}</div>;
 };
 const Wrapper = ({ children, isRevers }: Props) => (
   <div
     className={`flex lg:flex-row ${isRevers ? 'flex-col-reverse' : 'flex-col'}`}
   >
-    {' '}
     {children}{' '}
   </div>
 );
 const ItemTextJoin = ({ children }: Props) => (
   <div className="flex flex-col h-full">{children}</div>
 );
-type Program = Array<{ title: string; description: string; id: number }>;
+type Program = Array<{
+  title: string;
+  description: string;
+  id: number;
+  href?: string;
+}>;
 const program: Program = [
   {
     title: 'page.project.pts.team.title',
     description: 'page.project.pts.team.description',
+    href: '/team',
     id: 0,
   },
   {
@@ -49,6 +55,10 @@ const program: Program = [
     id: 4,
   },
 ];
+const Heading = ({ children }: Props) => (
+  <div className="text-blue p-10 flex-1 flex items-center">{children}</div>
+);
+
 const ProjectItems = () => {
   const intl = useIntl();
   return (
@@ -56,11 +66,16 @@ const ProjectItems = () => {
       <Wrapper isRevers={false}>
         <Item>
           <ItemTextJoin>
-            <div className="text-3xl text-blue text-center p-4 flex-1 flex items-center">
-              <p>{intl.formatMessage({ id: 'page.project.pts.title' })}</p>
-            </div>
-            <div className="bg-white">
-              <p className="text-md p-4 font-light">
+            <Heading>
+              <h1 className={`${styles.headingTitle} text-white`}>
+                {intl.formatMessage({ id: 'page.project.pts.title' })}
+              </h1>
+            </Heading>
+            <div className="border border-white">
+              <p
+                className="2xl:!pl-5 lg:!pl-10 p-4 text-base lg:text-xs !leading-relaxed tracking-widest text-md text-white"
+                style={{ lineHeight: '2.5rem' }}
+              >
                 {intl.formatMessage({ id: 'page.project.pts.ageRestrictions' })}
               </p>
             </div>
@@ -87,16 +102,19 @@ const ProjectItems = () => {
           />
         </Item>
         <Item>
-          <div className="flex flex-col h-full bg-white">
-            <div className="text-3xl text-brand-blue text-center p-4 flex-1 flex items-center">
-              <p>
-                {intl.formatMessage({ id: 'page.project.pts.goal.title' })}{' '}
+          <div className="flex flex-col h-full bg-white w-full">
+            {/*<div className="p-4 flex-1 flex items-center">*/}
+            <Heading>
+              <p className="line-height text-2xl 2xl:text-5xl !leading-relaxed prose line-height text-2xl 2xl:text-5xl !leading-relaxed prose text-brand-blue">
+                {intl.formatMessage({ id: 'page.project.pts.goal.title' })}
+                {' -'}
                 <br />
                 {intl.formatMessage({
                   id: 'page.project.pts.goal.description',
                 })}
               </p>
-            </div>
+            </Heading>
+            {/*</div>*/}
           </div>
         </Item>
       </Wrapper>
